@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 480px;
+    height: 480px;
+    margin: auto;
+}
+
+.grid-container>div {
+    height: 30px;
+    width: 30px;
+    background-color: lightcoral;
+}
+
+.grid-container>div:hover {
+    background-color: aqua;
+}
