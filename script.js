@@ -1,6 +1,15 @@
 const gridContainer = document.querySelector(".grid-container");
 const generateBtn = document.querySelector("#generate-btn");
 const resetBtn = document.querySelector("#reset-btn");
+const colorSet = [
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "skyblue",
+  "blue",
+  "purple",
+];
 
 function appendDivToGrid(gridSize) {
   const divSize = 512 / gridSize;
@@ -28,7 +37,8 @@ function generateGrid() {
 }
 
 function addHoverEffect() {
-  this.style.backgroundColor = "black";
+  const color = colorSet[Math.floor(Math.random() * colorSet.length)];
+  this.style.backgroundColor = color;
 }
 
 function main() {
