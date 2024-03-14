@@ -5,9 +5,31 @@ function generateDivs(element, n) {
   }
 }
 
-function main() {
+function generateGrid() {
+  const pixel = 10;
+  let size = 16;
+  let length = size * pixel;
+
   const gridContainer = document.querySelector(".grid-container");
-  generateDivs(gridContainer, 256);
+  gridContainer.innerHTML = "";
+
+  do {
+    size = parseInt(
+      prompt("Please enter the size of the new grid (less than 100)")
+    );
+    length = size * pixel;
+  } while (size > 100);
+
+  gridContainer.setAttribute(
+    "style",
+    `width: ${length}px; height: ${length}px;`
+  );
+  generateDivs(gridContainer, size * size);
+}
+
+function main() {
+  const generateBtn = document.querySelector("#generate-btn");
+  generateBtn.addEventListener("click", generateGrid);
 }
 
 main();
