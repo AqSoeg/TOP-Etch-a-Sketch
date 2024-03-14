@@ -7,9 +7,9 @@ const colorSet = [
   "orange",
   "yellow",
   "green",
-  "skyblue",
   "blue",
-  "purple",
+  "indigo",
+  "violet",
 ];
 let gridSize = 16;
 
