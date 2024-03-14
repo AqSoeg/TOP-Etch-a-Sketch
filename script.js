@@ -1,35 +1,40 @@
-function generateDivs(element, n) {
-  for (let i = 0; i < n; i++) {
+const gridContainer = document.querySelector(".grid-container");
+const generateBtn = document.querySelector("#generate-btn");
+const resetBtn = document.querySelector("#reset-btn");
+
+function appendDivToGrid(gridSize) {
+  const divSize = 512 / gridSize;
+  for (let i = 0; i < gridSize * gridSize; i++) {
     const div = document.createElement("div");
-    element.appendChild(div);
+    div.setAttribute("style", `width: ${divSize}px; height: ${divSize}px;`);
+    div.addEventListener("mouseover", addHoverEffect);
+    gridContainer.appendChild(div);
   }
 }
 
-function generateGrid() {
-  const pixel = 10;
-  let size = 16;
-  let length = size * pixel;
-
-  const gridContainer = document.querySelector(".grid-container");
+function initGrid() {
   gridContainer.innerHTML = "";
+  appendDivToGrid(16);
+}
+
+function generateGrid() {
+  gridContainer.innerHTML = "";
+  let gridSize;
 
   do {
-    size = parseInt(
-      prompt("Please enter the size of the new grid (less than 100)")
-    );
-    length = size * pixel;
-  } while (size > 100);
+    gridSize = parseInt(prompt("Please enter the grid size (max 100)"));
+  } while (gridSize > 100 || gridSize < 0);
+  appendDivToGrid(gridSize);
+}
 
-  gridContainer.setAttribute(
-    "style",
-    `width: ${length}px; height: ${length}px;`
-  );
-  generateDivs(gridContainer, size * size);
+function addHoverEffect() {
+  this.style.backgroundColor = "black";
 }
 
 function main() {
-  const generateBtn = document.querySelector("#generate-btn");
+  initGrid();
   generateBtn.addEventListener("click", generateGrid);
+  resetBtn.addEventListener("click", initGrid);
 }
 
 main();
