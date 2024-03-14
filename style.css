@@ -16,14 +16,13 @@
 
 .btn-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
     gap: 20px;
 }
 
-#generate-btn {
+button {
     border: 2px solid #F9FAF8;
     border-radius: 8px;
     background-color: #3882F6;
@@ -31,16 +30,6 @@
     color: white;
     padding: 20px;
     width: 200px;
-}
-
-#reset-btn {
-    border: 2px solid #F9FAF8;
-    border-radius: 8px;
-    background-color: rgb(186, 77, 91);
-    font-size: 24px;
-    color: white;
-    width: 200px;
-    padding: 20px;
 }
 
 .grid-container {
