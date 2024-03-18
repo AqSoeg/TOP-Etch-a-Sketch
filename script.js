@@ -32,7 +32,8 @@ function generateGrid() {
   gridContainer.innerHTML = "";
 
   do {
-    gridSize = parseInt(prompt("Please enter the grid size (max 100)"));
+    gridSize = parseInt(prompt("Please enter the grid size (max 100)", 16));
+    if (!gridSize) gridSize = 16;
   } while (gridSize > 100 || gridSize < 0);
   appendDivToGrid(gridSize);
 }
